@@ -11,6 +11,7 @@ import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:'dummyRouteGuard',
+      useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
